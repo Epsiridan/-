@@ -74,7 +74,7 @@ public class Main {
 
     private static int calculateArabic(int num1, int num2, char operator) throws IllegalArgumentException, ArithmeticException {
 
-        if (num1 <= 10 && num2 <= 10) {
+        if ((num1 <= 10 && num2 <= 10) && (num1 > 0 && num2 > 0)) {
             switch (operator) {
                 case '+':
                     return num1 + num2;
@@ -90,6 +90,8 @@ public class Main {
                 default:
                     throw new IllegalArgumentException("неверный оператор");
             }
+        } else if ((num1 < 1 || num2 < 1)) {
+            throw new IllegalArgumentException("одно или оба введённые вами числа меньше 1");
         } else {
             throw new IllegalArgumentException("одно или оба введённые вами числа больше 10");
         }
